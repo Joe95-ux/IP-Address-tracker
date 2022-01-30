@@ -41,13 +41,13 @@ app.get("/", async (req, res) => {
   try {
     const response = await fetch(url);
     const result = await response.json();
-    const ip = await result.ip;
-    const city = await result.location?.city || "";
-    const region = await result.location.region;
-    const timezone = await result.location.timezone;
-    const lat = await result.location.lat;
-    const lng = await result.location.lng;
-    const isp = await result.isp;
+    const ip = await result?.ip;
+    const city = await result?.location?.city || "";
+    const region = await result?.location?.region;
+    const timezone = await result?.location?.timezone;
+    const lat = await result?.location?.lat;
+    const lng = await result?.location?.lng;
+    const isp = await result?.isp;
     res.render("home", {
       ip,
       city,
