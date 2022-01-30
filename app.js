@@ -38,17 +38,28 @@ function validateDomain(domain) {
 }
 
 app.get("/", async (req, res) => {
-  const response = await fetch(url);
-  const result = await response.json();
-  res.render("home", {
-    ip: result.ip,
-    city: result.location.city,
-    region: result.location.region,
-    timezone: result.location.timezone,
-    lat: result.location.lat,
-    lng: result.location.lng,
-    isp: result.isp,
-  });
+  try {
+    const response = await fetch(url);
+    const result = await response.json();
+    const ip = await result.ip;
+    const city = await result.location.city;
+    const region = await result.location.region;
+    const timezone = await result.location.timezone;
+    const lat = await result.location.lat;
+    const lng = await result.location.lng;
+    const isp = await result.isp;
+    res.render("home", {
+      ip,
+      city,
+      region,
+      timezone,
+      lat,
+      lng,
+      isp,
+    });
+  } catch (e) {
+    console.log(e);
+  }
 });
 
 //get result if domain is passed
@@ -86,25 +97,20 @@ app.get("/search", async (req, res) => {
     result = await getDomainData(query);
   } else if (validIp) {
     result = await getIpData(query);
-  }else{
-      result = ""
+  } else {
+    result = "";
   }
 
-
   res.render("search", {
-    result:result,
+    result: result,
   });
 });
 
 const PORT = process.env.PORT || 4000;
 
-app.listen(
-  PORT,
-  console.log(`Server running  on port ${PORT}`)
-);
-
+app.listen(PORT, console.log(`Server running  on port ${PORT}`));
 
 app.use(function (err, req, res, next) {
-    console.error(err.stack)
-    res.status(500).send('Something broke!')
-  })
+  console.error(err.stack);
+  res.status(500).send("Something broke!");
+});
