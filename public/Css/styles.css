@@ -1,0 +1,330 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --mainWhite: hsl(0, 0%, 100%);
+    --mainBlack: hsl(200, 15%, 8%);
+    --mainGrey: #ececec;
+    --darkGrey: hsl(0, 0%, 52%);
+    --mainSpacing: 0.1rem;
+    --sectionPadding: 3% 5%;
+    --mainTransition: all 0.3s linear;
+}
+
+body {
+    font-family: 'Rubik', sans-serif;
+}
+
+h1 {
+    font-size: 2.5rem;
+    color: var(--mainWhite);
+    font-weight: 500;
+
+}
+
+h2 {
+    color: var(--darkGrey);
+    font-size: 1rem;
+    text-transform: uppercase;
+    font-weight: 400;
+    margin-bottom: 0.85rem;
+
+}
+
+p {
+    color: var(--mainBlack);
+    font-size: 1.7rem;
+    text-transform: capitalize;
+    font-weight: 500;
+    word-wrap: break-word;
+}
+
+#header {
+    position: relative;
+    background-image: url(/images/pattern-bg.png);
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: var(--sectionPadding);
+    text-align: center;
+    flex-direction: column;
+    height: 35vh;
+    z-index: 1;
+
+
+}
+
+.search-container {
+    margin: 1.8rem 0 2.2rem;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.search-form {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    text-align: left;
+    width: 600px;
+    height: 3.5rem;
+}
+
+.search,
+.submit-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.2rem 1.4rem;
+    height: 100%;
+    border: none;
+    outline: none;
+}
+
+.search {
+    flex-basis: 90%;
+    border-radius: 10px 0 0 10px;
+    color: var(--darkGrey);
+    background-color: var(--mainWhite);
+
+}
+
+.search-form input[type=text]::placeholder {
+    font-size: 1rem;
+    font-weight: 300;
+}
+
+.submit-btn {
+    border-radius: 0 10px 10px 0;
+    color: var(--mainWhite);
+    background-color: var(--mainBlack);
+    transition: var(--mainTransition);
+    flex-basis: 10%;
+    cursor: pointer;
+}
+.show-info{
+    position: absolute;
+    bottom:0.5rem;
+    font-size: 1rem;
+    color: var(--mainBlack);
+    background-color: var(--mainWhite);
+    padding: 0.6rem 0.8rem;
+    border-radius: 5px;
+    font-weight: 400;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    transition: var(--mainTransition);
+}
+.show-info:hover{
+    color: var(--mainWhite);
+    background-color: var(--mainBlack);
+}
+
+#info {
+    /* position: relative; */
+    display: flex;
+    padding: var(--sectionPadding);
+    text-align: center;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 65vh;
+    z-index: 4;
+}
+
+
+#float {
+    position: absolute;
+    top: 27%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+    transition: transform 0.5s ease-in-out;
+    z-index: 10000;
+}
+
+.active-info{
+    opacity: 0;
+    transform: translateY(-150%);
+    z-index: -1;
+}
+.error-text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    position: absolute;
+    top: 50%;
+}
+.error-text h1{
+    color: red;
+    font-size: 1.4rem;
+    padding: 1rem;
+    border-radius: 10px;
+    background-color: var(--mainGrey);
+}
+.info-container {
+    position: relative;
+    display: flex;
+    /* align-items: center; */
+    padding: 2.2rem 2.2rem 3rem;
+    background-color: var(--mainWhite);
+    border-radius: 10px;
+    width: 80%;
+    height: auto;
+    text-align: left;
+}
+.close{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0.8rem;
+    right: 1rem;
+    font-size: 1rem;
+    cursor: pointer;
+    padding: 0.3rem 0.4rem;
+    border-radius: 3px;
+    transition: var(--mainTransition);
+}
+.close:hover{
+    background-color: var(--darkGrey);
+    transform: scale(1.1);
+    opacity: 0.6;
+
+}
+.info-container div:not(:first-child) {
+    border-left: 1px solid var(--darkGrey);
+    padding-left: 2rem;
+    margin-left: 5rem;
+
+}
+
+@media screen and (max-width:1500px) {
+    p {
+        font-size: 1.4rem;
+    }
+    .info-container div:not(:first-child) {
+        margin-left: 4rem;
+    
+    }
+}
+
+@media screen and (max-width:1300px) {
+    h2{
+        font-size: 0.9rem;
+    }
+
+    p {
+        font-size: 1.3rem;
+    }
+    .info-container div:not(:first-child) {
+        margin-left: 3rem;
+    
+    }
+
+}
+@media screen and (max-width:1100px) {
+    h1{
+        font-size: 1.8rem;
+    }
+    h2{
+        font-size: 0.85rem;
+    }
+    p {
+        font-size: 1.1rem;
+    }
+    #float {
+        top: 29%;
+    
+    }
+    .info-container div:not(:first-child) {
+        margin-left: 2rem;
+        padding-left: 1.2rem;
+    
+    }
+}
+@media screen and (max-width:768px) {
+    h1{
+        font-size: 1.7rem;
+    }
+    h2 {
+        font-size: 0.9rem;
+    }
+
+    p {
+        font-size: 1.4rem;
+    }
+    .search-form input[type=text]::placeholder {
+        font-size: 1rem;
+        font-weight: 300;
+    }
+    
+    .info-container {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+
+    .info-container div:not(:first-child) {
+        border-left: none;
+        padding-left: 0;
+        margin-left: 0;
+        margin-top: 1.5rem;
+
+    }
+}
+@media screen and (max-width:375px) {
+    h1{
+        font-size: 1.5rem;
+    }
+    h2 {
+        font-size: 0.85rem;
+    }
+
+    p {
+        font-size: 0.95rem;
+    }
+    .search-form input[type=text]::placeholder {
+        font-size: 0.8rem;
+    }
+    #float {
+        position: absolute;
+        top: 11rem;
+    
+    }
+    .info-container div:not(:first-child) {
+        margin-top: 1.3rem;
+
+    }
+    .error-text h1{
+        font-size: 1rem;
+    }
+}
+@media screen and (max-width:330px) {
+    #float {
+        top: 9rem;
+    
+    }
+}
+
+@media screen and (max-width:280px) {
+    .search-form input[type=text]::placeholder {
+        font-size: 0.6  rem;
+    }
+    #float {
+        top: 11rem;
+    
+    }
+}
