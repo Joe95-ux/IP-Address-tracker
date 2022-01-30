@@ -42,7 +42,7 @@ app.get("/", async (req, res) => {
     const response = await fetch(url);
     const result = await response.json();
     res.render("home", {
-      result
+      result:result
     });
   } catch (e) {
     console.log(e);
