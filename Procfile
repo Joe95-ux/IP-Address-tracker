@@ -1,1 +1,1 @@
-web: ENV_SILENT=true node app.js
+web: node app.js
