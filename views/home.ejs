@@ -31,25 +31,25 @@
         <div class="info-container">
             <div>
                 <h2>ip address</h2>
-                <p><%= ip %> </p>
+                <p><%= result?.ip %> </p>
             </div>
             <div>
                 <h2>location</h2>
-                <p><%= city %>, <%= region %></p>
+                <p><%= result?.location?.city %>, <%= result?.location?.region %></p>
             </div>
             <div>
                 <h2>timezone</h2>
-                <p><%= timezone %> </p>
+                <p><%= result?.location?.timezone %> </p>
             </div>
             <div>
                 <h2>isp</h2>
-                <p><%= isp %> </p>
+                <p><%= result?.isp %> </p>
             </div>
             <i class="close fas fa-times" title="close details"></i>
         </div>
         
-        <h4 style="display: none;" class="lat"><%= lat %> </h4>
-        <h4 style="display: none;" class="long"><%= lng%> </h4>
+        <h4 style="display: none;" class="lat"><%= result?.location?.lat %> </h4>
+        <h4 style="display: none;" class="long"><%= result?.location?.lng %> </h4>
 
     </section>
     
