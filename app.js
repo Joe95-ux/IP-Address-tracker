@@ -13,7 +13,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.set("view engine", "ejs");
 
-const apiKey = process.env.API_KEY;
+const apiKey = "at_pIUwEN0iwhjHNrOKww5abSiUeJ9dQ";
 const url = "https://geo.ipify.org/api/v1?apiKey=" + apiKey;
 
 //validate ip address

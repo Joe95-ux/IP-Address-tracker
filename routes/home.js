@@ -3,7 +3,7 @@ const router = express.Router();
 const fetch = require("node-fetch");
 
 
-const apiKey = process.env.API_KEY;
+const apiKey = "at_pIUwEN0iwhjHNrOKww5abSiUeJ9dQ";
 const url = "https://geo.ipify.org/api/v1?apiKey=" + apiKey;
 
 router.get("/", async (req, res) => {
