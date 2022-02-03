@@ -4,7 +4,7 @@ const fetch = require("node-fetch");
 
 
 const apiKey = process.env.API_KEY;
-const url = "https://geo.ipify.org/api/v1?apiKey=" + apiKey;
+const url = "https://geo.ipify.org/api/v2/country,city?apiKey=" + apiKey;
 
 router.get("/", async (req, res) => {
     try {
