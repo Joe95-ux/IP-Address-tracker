@@ -41,7 +41,7 @@ app.get("/", async (req, res) => {
   try {
     const response = await fetch(url);
     const result = await response.json();
-    const {ip,location, isp} = await result;
+    const {ip,location, isp} =  result;
     res.render("home", {
       ip,location,isp
     });
