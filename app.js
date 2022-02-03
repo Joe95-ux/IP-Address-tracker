@@ -43,7 +43,7 @@ function validateDomain(domain) {
 async function getDomainData(domain) {
   try {
     const response = await fetch(
-      `https://geo.ipify.org/api/v1?apiKey=${apiKey}&domain=${domain}`
+      `https://geo.ipify.org/api/v2/country,city?apiKey=${apiKey}&domain=${domain}`
     );
     const data = await response.json();
     return data;
@@ -56,7 +56,7 @@ async function getDomainData(domain) {
 async function getIpData(ip) {
   try {
     const response = await fetch(
-      `https://geo.ipify.org/api/v1?apiKey=${apiKey}&ipAddress=${ip}`
+      `https://geo.ipify.org/api/v2/country,city?apiKey=${apiKey}&ipAddress=${ip}`
     );
     const data = await response.json();
     return data;
