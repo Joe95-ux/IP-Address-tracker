@@ -41,8 +41,9 @@ app.get("/", async (req, res) => {
   try {
     const response = await fetch(url);
     const result = await response.json();
+    const {ip,location, isp} = await result;
     res.render("home", {
-      result:result
+      ip,location,isp
     });
   } catch (e) {
     console.log(e);
@@ -99,5 +100,5 @@ app.listen(PORT, console.log(`Server running  on port ${PORT}`));
 
 app.use(function (err, req, res, next) {
   console.error(err.stack);
-  res.status(500).send(err);
+  res.status(500).send("Something broke!");
 });

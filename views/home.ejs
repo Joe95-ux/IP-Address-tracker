@@ -28,35 +28,31 @@
     <section id="info">
 
     </section>
-    <% if(result !== null){%>
     <section id="float">
         <div class="info-container">
             <div>
                 <h2>ip address</h2>
-                <p><%= result.ip %> </p>
+                <p><%= ip %> </p>
             </div>
             <div>
                 <h2>location</h2>
-                <p><%= result.location.city%>, <%= result.location.region %></p>
+                <p><%= location.city%>, <%= location.region %></p>
             </div>
             <div>
                 <h2>timezone</h2>
-                <p><%= result.location.timezone %> </p>
+                <p><%= location.timezone %> </p>
             </div>
             <div>
                 <h2>isp</h2>
-                <p><%= result.isp %> </p>
+                <p><%= isp %> </p>
             </div>
             <i class="close fas fa-times" title="close details"></i>
         </div>
 
-        <h4 style="display: none;" class="lat"><%= result.location.lat %> </h4>
-        <h4 style="display: none;" class="long"><%= result.location.lng %> </h4>
+        <h4 style="display: none;" class="lat"><%= location.lat %> </h4>
+        <h4 style="display: none;" class="long"><%= location.lng %> </h4>
 
     </section>
-
-
-    <%}%> 
     
     
 
