@@ -4,6 +4,7 @@ const _ = require("lodash");
 const ejs = require("ejs");
 const fetch = require("node-fetch");
 const { query } = require("express");
+const homeRouter = require("./routes/home");
 
 const app = express();
 
@@ -37,18 +38,7 @@ function validateDomain(domain) {
   }
 }
 
-app.get("/", async (req, res) => {
-  try {
-    const response = await fetch(url);
-    const result = await response.json();
-    const {ip,location, isp} =  result;
-    res.render("home", {
-      ip,location,isp
-    });
-  } catch (e) {
-    console.log(e);
-  }
-});
+
 
 //get result if domain is passed
 async function getDomainData(domain) {
@@ -93,6 +83,8 @@ app.get("/search", async (req, res) => {
     result: result,
   });
 });
+
+app.use(homeRouter)
 
 const PORT = process.env.PORT || 4000;
 
